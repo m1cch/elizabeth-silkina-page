@@ -6,8 +6,13 @@ function App() {
   
   return (
     <>
-      {/* Фоновый градиент */}
-      <div className="gradient-background"></div>
+      {/* Видео фон */}
+      <div className="video-background">
+        <video autoPlay loop muted playsInline>
+          <source src="/background.mp4" type="video/mp4" />
+        </video>
+        <div className="video-overlay"></div>
+      </div>
       
       {/* Светящиеся частицы */}
       <div className="particles">
