@@ -1,0 +1,279 @@
+/* Фоновый градиент */
+.gradient-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  background: linear-gradient(
+    135deg,
+    #0a0a1e 0%,
+    #1a0a2e 25%,
+    #16213e 50%,
+    #0f3460 75%,
+    #0a192f 100%
+  );
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(30deg);
+  }
+}
+
+/* Светящиеся частицы */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkle 4s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1) translateY(-20px);
+  }
+}
+
+/* Основной контент */
+.main-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.photo-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.photo-wrapper {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Пульсирующие кольца */
+.pulse-ring {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: pulseRing 3s ease-out infinite;
+}
+
+.pulse-ring-1 {
+  width: 100%;
+  height: 100%;
+  animation-delay: 0s;
+}
+
+.pulse-ring-2 {
+  width: 100%;
+  height: 100%;
+  animation-delay: 1s;
+}
+
+.pulse-ring-3 {
+  width: 100%;
+  height: 100%;
+  animation-delay: 2s;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Светящийся эффект */
+.glow-effect {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 150, 200, 0.3) 0%,
+    rgba(150, 100, 255, 0.2) 40%,
+    transparent 70%
+  );
+  animation: glowPulse 4s ease-in-out infinite;
+  filter: blur(20px);
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Фото */
+.main-photo {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 0 40px rgba(255, 150, 200, 0.4),
+    0 0 80px rgba(150, 100, 255, 0.3),
+    0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease;
+  z-index: 5;
+  animation: photoFloat 6s ease-in-out infinite;
+}
+
+.main-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 60px rgba(255, 150, 200, 0.6),
+    0 0 100px rgba(150, 100, 255, 0.5),
+    0 20px 80px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes photoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Имя */
+.name-container {
+  text-align: center;
+  animation: fadeInUp 1.5s ease-out 0.5s both;
+}
+
+.name {
+  font-family: 'Georgia', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: white;
+  letter-spacing: 4px;
+  text-shadow: 
+    0 0 20px rgba(255, 150, 200, 0.5),
+    0 0 40px rgba(150, 100, 255, 0.3);
+  margin: 0;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 
+      0 0 30px rgba(255, 150, 200, 0.8),
+      0 0 60px rgba(150, 100, 255, 0.5);
+  }
+}
+
+.name-underline {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  margin: 1rem auto 0;
+  animation: expandLine 2s ease-out 1s both;
+}
+
+@keyframes expandLine {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .photo-wrapper {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .main-photo {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .glow-effect {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .name {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+}
